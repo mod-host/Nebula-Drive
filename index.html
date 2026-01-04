@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NebulaDrive</title>
+<style>
+:root {
+  --bg: #0d0d0d;
+  --bg2: #1a1a1a;
+  --text: #fff;
+  --input-bg: rgba(255,255,255,0.08);
+  --input-text: #fff;
+}
+
+* {
+  box-sizing: border-box; /* ensure padding doesn't overflow */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, var(--bg), var(--bg2));
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 10px; /* padding so container fits small screens */
+}
+
+.site-title {
+  font-size: 50px; /* reduced for mobile */
+  font-weight: bold;
+  background: linear-gradient(90deg, #fff, #aaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.login-container {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+
+.input-group {
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 25px;
+  border: none;
+  background: var(--input-bg);
+  color: var(--input-text);
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 10px #fff;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  color: #aaa;
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 12px;
+  color: #fff;
+}
+
+/* Login button */
+#loginBtn {
+  width: 150px;       /* smaller width than input boxes */
+  padding: 12px 0;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #fff, #aaa);
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+#loginBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255,255,255,0.5);
+}
+
+/* Error message */
+#errorMsg {
+  margin-top: 10px;
+  font-weight: bold;
+  display: none;
+  animation: pop 0.3s ease;
+  text-align: center;
+  font-size: 14px;
+  background: linear-gradient(90deg, #ff4d4d, #b30000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0;}
+  100% { transform: scale(1); opacity: 1;}
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .login-container {
+    padding: 20px 15px;
+  }
+
+  .input-group input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  #loginBtn {
+    width: 130px;   /* smaller on mobile too */
+    font-size: 14px;
+    padding: 10px 0;
+  }
+}
+</style>
+<link rel="icon" type="image/png" href="favicon.png">
+
+</head>
+<body>
+
+<div class="login-wrapper">
+  <div class="site-title">NebulaDrive</div>
+
+  <div class="login-container">
+    <div class="input-group">
+      <input type="text" id="username" placeholder=" " autocomplete="off">
+      <label for="username">Username</label>
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="password" placeholder=" " autocomplete="off">
+      <label for="password">Password</label>
+    </div>
+
+    <div id="errorMsg">Please enter correct username and password</div>
+  </div>
+
+  <button id="loginBtn">Login</button>
+</div>
+
+<script>
+const loginBtn = document.getElementById('loginBtn');
+const errorMsg = document.getElementById('errorMsg');
+
+loginBtn.addEventListener('click', () => {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  if(username === 'blacktox' && password === '7895123') {
+    sessionStorage.setItem('loggedIn', 'true');
+    window.location.href = 'gallery.html';
+  } else {
+    errorMsg.style.display = 'block';
+  }
+});
+
+document.querySelectorAll('#username, #password').forEach(input => {
+  input.addEventListener('input', () => {
+    errorMsg.style.display = 'none';
+  });
+});
+</script>
+
+</body>
+</html>
