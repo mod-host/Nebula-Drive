@@ -6,6 +6,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NebulaDrive</title>
 <style>
+
+  #loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Dots container */
+.dots {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+/* Single dot */
+.dots span {
+  width: 9px;
+  height: 9px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: dotPulse 1.4s infinite;
+}
+
+/* Delay each dot */
+.dots span:nth-child(1) { animation-delay: 0s; }
+.dots span:nth-child(2) { animation-delay: 0.2s; }
+.dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotPulse {
+  0% { opacity: 0; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-6px); }
+  60% { opacity: 0; transform: translateY(0); }
+}
+
+/* Text */
+.loader-text {
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+/* Fade out loader */
+#loader.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+
   /* Ensure padding is included in width calculations */
   * {
     box-sizing: border-box;
@@ -140,6 +195,16 @@
 </style>
 </head>
 <body>
+
+  <div id="loader">
+  <div class="dots">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="loader-text">Loading</div>
+</div>
+
 
 <!-- Home Button -->
 <button id="navBtn">Logout</button>
@@ -506,6 +571,19 @@
   <img src="https://i.postimg.cc/qRmPjcs2/photo_6255744481265126594_y.jpg" alt="Indu aunty 03">
   <div class="thumb-title">Indu aunty 03</div>
 </a>
+
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQAD6wkAAly14EYAATGci5xhFzQWBA" data-title="maddepola" target="_blank">
+  <img src="https://i.postimg.cc/Cx52fGGg/502585775_2888014581536433_1729211510272989014_n.jpg" alt="Prashanthi 01">
+  <div class="thumb-title">Prashanthi 01</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQAD7QkAAly14EbLTegxorGcThYE" data-title="maddepola" target="_blank">
+  <img src="https://i.postimg.cc/QdCzWQQX/502595811_2888022908202267_9206104784643076838_n.jpg" alt="Prashanthi 02">
+  <div class="thumb-title">Prashanthi 02</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQAD7wkAAly14EZe_NXVe5NIlhYE" data-title="maddepola" target="_blank">
+  <img src="https://i.postimg.cc/GmtfsFFb/501537867_2888022951535596_5039551225824752722_n.jpg" alt="Prashanthi 03">
+  <div class="thumb-title">Prashanthi 03</div>
+</a>
 </div>
 
 <script>
@@ -540,6 +618,15 @@
       item.style.display = title.includes(value) ? "block" : "none";
     });
   });
+
+  // Loader logic
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  setTimeout(() => {
+    loader.classList.add("hide");
+  }, 500);
+});
+
 </script>
 
 </body>
