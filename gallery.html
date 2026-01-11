@@ -7,10 +7,49 @@
 <title>NebulaDrive</title>
 <style>
 
+  #loader + #navBtn,
+#loader ~ #navBtn {
+  display: none;
+}
+
+
+.title-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Gradient for H1 text only */
+.title-wrap {
+  background: linear-gradient(90deg, #ffffff, #5c5b5b); /* change colors as you like */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold; /* optional */
+}
+
+/* Logo stays normal size */
+.mini-icon {
+  height: 1em;      /* same as h1 text */
+  width: auto;
+  margin-right: 8px;
+}
+
+
+.title-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.mini-icon {
+  height: 50px;          /* SAME size as h1 text */
+  width: auto;
+  margin-right: 8px;
+}
+
+
   #loader {
   position: fixed;
   inset: 0;
-  background: #000;
+  background: #0d0d0d;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,9 +121,9 @@
     position: fixed;
     top: 15px;
     left: 15px;
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    padding: 10px 18px;
+    background: rgba(19, 19, 19, 0.15);
+    color: #1a1a1a;
+    padding: 8px 16px;
     border-radius: 25px;
     cursor: pointer;
     border: none;
@@ -94,29 +133,39 @@
   }
 
   #navBtn:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(10, 10, 10, 0.25);
     transform: scale(1.05);
   }
 
   /* Search Container */
-  .search-container {
-    width: 100%;
-    max-width: 400px;
-    padding: 0 10px; /* Add some side padding for small screens */
-    margin-bottom: 25px;
-  }
+.search-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 0 10px;
+  margin-bottom: 25px;
+}
 
-  /* Search Bar */
-  #searchBox {
-    width: 100%;         /* Fill parent container */
-    padding: 12px 18px;
-    border-radius: 20px;
-    border: none;
-    font-size: 16px;
-    outline: none;
-    background: #222;
-    color: #fff;
-  }
+/* Search Bar */
+#searchBox {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 20px;
+  border: 2px solid transparent; /* initially invisible border */
+  font-size: 16px;
+  outline: none;
+  background: #222;
+  color: #fff;
+  transition: all 0.3s ease; /* smooth effect */
+}
+
+/* On Click / Focus Effect */
+#searchBox:focus {
+ 
+ 
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);  /* optional glow */
+  border-radius: 25px; /* slightly more rounded */
+}
+
 
   a {
     text-decoration: none !important;
@@ -140,7 +189,7 @@
     transform: scale(1);
     transition: 0.25s;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    border: 2px solid #333;
+    border: 1px solid #333;
     text-align: center;
   }
 
@@ -207,9 +256,19 @@
 
 
 <!-- Home Button -->
-<button id="navBtn">Logout</button>
+<button id="navBtn"></button>
 
-<h1><center>NebulaDrive</center></h1>
+<h1>
+  <center>
+    <a href="index.html" class="title-link">
+      <span class="title-wrap">
+        <img src="logo.png" class="mini-icon">
+        NebulaDrive
+      </span>
+    </a>
+  </center>
+</h1>
+
 
 <!-- Search Container -->
 <div class="search-container">
@@ -318,7 +377,7 @@
   <img src="https://i.postimg.cc/5twn5Qwj/486611967_9283608321693149_4232076959192191320_n.jpg" alt="Kumari04">
   <div class="thumb-title">Kumari04</div>
 </a>
-<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQADNxAAAj1PCUWV98Mw2-wRYE" data-title="kumari5" target="_blank">
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQAD2BcAAmvQ-EbDpKMdj5r1gRYE" data-title="kumari5" target="_blank">
   <img src="https://i.postimg.cc/8ChtdfL0/491724076_4042795649380588_1707272341066735349_n.jpg" alt="Kumari05">
   <div class="thumb-title">Kumari05</div>
 </a>
@@ -329,6 +388,14 @@
 <a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQADOhAAAj1PCUXj7On-4XdVRxYE" data-title="kumari7" target="_blank">
   <img src="https://i.postimg.cc/gc4tBh12/487520791_4028269367499883_6636469607189241585_n.jpg" alt="Kumari07">
   <div class="thumb-title">Kumari07</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQAD3RcAAmvQ-EYEnS4BJYDdexYE" data-title="kumari 8" target="_blank">
+  <img src="https://i.postimg.cc/yxDvYg9n/503277119_4091943191132500_6281125588520516932_n.jpg" alt="Kumari 08">
+  <div class="thumb-title">Kumari 08</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQAD3xcAAmvQ-EbCqo674hzkQhYE" data-title="kumari 9" target="_blank">
+  <img src="https://i.postimg.cc/RhWXV6f8/502908847_4091943011132518_5926232034152977024_n.jpg" alt="Kumari 09">
+  <div class="thumb-title">Kumari 09</div>
 </a>
 
 <a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQADQw8AAj1PEUXLCW-3gpHtDhYE" data-title="bus video 1" target="_blank">
@@ -584,6 +651,56 @@
   <img src="https://i.postimg.cc/GmtfsFFb/501537867_2888022951535596_5039551225824752722_n.jpg" alt="Prashanthi 03">
   <div class="thumb-title">Prashanthi 03</div>
 </a>
+
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQADfRAAAvlaAUf4M0YP1cExVxYE" data-title="fb 1" target="_blank">
+  <img src="https://i.postimg.cc/9FfkvTT5/photo_6269489875555913623_y.jpg" alt="fb 01">
+  <div class="thumb-title">fb 01</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQADiBAAAvlaAUd-Jd7A16L-0BYE" data-title="fb 2" target="_blank">
+  <img src="https://i.postimg.cc/Wb4yQrZB/photo_6269489875555913625_y.jpg" alt="fb 02">
+  <div class="thumb-title">fb 02</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQADihAAAvlaAUffgDOLO-dVkRYE" data-title="fb 3" target="_blank">
+  <img src="https://i.postimg.cc/tCgcLP6L/photo_6269489875555913626_y.jpg" alt="fb 03">
+  <div class="thumb-title">fb 03</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQADjBAAAvlaAUdl0OGOG40nhhYE" data-title="fb 4" target="_blank">
+  <img src="https://i.postimg.cc/bNv5KbnM/photo_6269489875555913627_y.jpg" alt="fb 04">
+  <div class="thumb-title">fb 04</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQADhhAAAvlaAUfYHsKdLV3lnRYE" data-title="fb 5" target="_blank">
+  <img src="https://i.postimg.cc/YqSPJgFs/photo_6269489875555913624_y.jpg" alt="fb 05">
+  <div class="thumb-title">fb 05</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQADjRAAAvlaAUfdkH2n9l8kqRYE" data-title="fb 6" target="_blank">
+  <img src="https://i.postimg.cc/ZKqQ13ND/photo_6269489875555913628_y.jpg" alt="fb 06">
+  <div class="thumb-title">fb 06</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQAD3RwAAvlaCUcjeSbEC7raaBYE" data-title="apsara 1" target="_blank">
+  <img src="https://i.postimg.cc/BQvzdDFh/photo_6271741675369598908_y.jpg" alt="Apsara 01">
+  <div class="thumb-title">Apsara 01</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQAD3hwAAvlaCUdPY4zzodhSFRYE" data-title="apsara 2" target="_blank">
+  <img src="https://i.postimg.cc/zXfQ9WhF/photo_6271741675369598909_y.jpg" alt="Apsara 02">
+  <div class="thumb-title">Apsara 02</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQAD4BwAAvlaCUeTKEyMqHE0YxYE" data-title="apsara 3" target="_blank">
+  <img src="https://i.postimg.cc/7YLRp7zm/photo_6271741675369598910_y.jpg" alt="Apsara 03">
+  <div class="thumb-title">Apsara 03</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQAD4hwAAvlaCUcm7N6FZ3aGcBYE" data-title="apsara 4" target="_blank">
+  <img src="https://i.postimg.cc/VsgTG4JH/photo_6271741675369598923_y.jpg" alt="Apsara 04">
+  <div class="thumb-title">Apsara 04</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQAD5BwAAvlaCUfwWEra9hRLihYE" data-title="apsara 5" target="_blank">
+  <img src="https://i.postimg.cc/c1hj9Tvk/photo_6271741675369598939_y.jpg" alt="Apsara 05">
+  <div class="thumb-title">Apsara 05</div>
+</a>
+<a class="thumb" href="https://t.me/gallry_server_bot?start=BQADAQADAh0AAvlaCUfEzQZd-CzwDRYE" data-title="rusiri miss" target="_blank">
+  <img src="https://i.postimg.cc/qBwYbQNs/photo_6271741675369598970_x.jpg" alt="Rusiri miss">
+  <div class="thumb-title">Rusiri miss</div>
+</a>
+
 </div>
 
 <script>
@@ -619,9 +736,13 @@
     });
   });
 
-  // Loader logic
-window.addEventListener("load", () => {
+ window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
+  const navBtn = document.getElementById("navBtn");
+
+  // Remove button permanently
+  if (navBtn) navBtn.remove();
+
   setTimeout(() => {
     loader.classList.add("hide");
   }, 500);
